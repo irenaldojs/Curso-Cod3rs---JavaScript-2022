@@ -7,7 +7,7 @@ function funcionarOuNao(valor, chanceErro){
                 resolve(valor)
             }
         }catch(e){
-            resolve(e)
+            reject(e)
         }      
     })
 }
