@@ -28,6 +28,30 @@
     <div>Animar!</div>
 
     <script>
-        // ...
+        const div = $('div')
+        function alterarLargura(valor, ducarao, callback) {
+            div.animate({ width: `+=${valor}` },
+             ducarao, callback)
+        }
+
+        function moverDiagonal(valor, ducarao, callback) {
+            div.animate({top:`+=${valor}`, left: `+=${valor}`},
+             ducarao, callback)
+        }
+
+        function girar(valor, ducarao, callback){
+            div.animate({transform: `+=${valor}`}, {
+                step: function(valor){
+                    $(this).css('transform', `rotate(${valor}deg)`)
+                },
+                duration: ducarao
+
+            }, 'linear', callback)
+        }
+
+        alterarLargura(300, 'slow', () => 
+            alterarLargura(-300, 'slow', () => 
+                moverDiagonal(300, 'slow', () =>
+                    girar(3600, 5000))))
     </script>
 </body>
