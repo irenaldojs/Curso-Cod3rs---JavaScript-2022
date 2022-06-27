@@ -1,8 +1,21 @@
+import Layout from "../components/Layout";
+import Tabela from "../components/Tabela";
+import Cliente from "../core/Cliente";
+
+const clientes = [
+  new Cliente('Ana', 34, '1'),
+  new Cliente('Bia', 45, '2'),
+  new Cliente('Carlos', 23, '3'),
+  new Cliente('Pedro', 54, '4')
+]
+
 export default function Home() {
   return (
-    <div className='flex h-screen justify-center items-center bg-gradient-to-r from-purple-500 to-blue-600'
-      >
-      <span className="text-4xl">Texto</span>
+    <div className='flex h-screen justify-center items-center bg-gradient-to-r from-purple-500 to-blue-600 text-white'
+    >
+      <Layout titulo="Cadastro Simples">
+        <Tabela clientes={clientes}></Tabela>
+      </Layout>
     </div>
   )
 }
