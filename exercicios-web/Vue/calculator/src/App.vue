@@ -1,15 +1,15 @@
 <template>
     <div id='app'>
         <h1>Calculadora</h1>
-        <Calculator></Calculator>
+        <CalculatorItem></CalculatorItem>
     </div>
 </template>
 
 <script>
-import Calculator from './main/Calculator.vue'
+import CalculatorItem from './main/CalculatorItem.vue'
 
 export default {
-    components: { Calculator }
+    components: { CalculatorItem }
 }
 </script>
 
