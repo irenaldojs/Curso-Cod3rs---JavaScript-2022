@@ -53,6 +53,10 @@ export default {
 
                 try {
                     this.value[0] = eval(`${this.value[0]} ${currentOperation} ${this.value[1]}`)
+                    if (isNaN(this.values[0]) || !isFinite(this.values[0])) {
+                        this.clearMemory()
+                        return
+                    }
 
                 } catch (e) {
                     this.$emit('onError', e)
@@ -76,7 +80,7 @@ export default {
             const currentDisplayValue = currentValue + n
 
             this.displayValue = currentDisplayValue
-    
+
             if (n !== '.') {
                 const i = this.current
                 const newValue = parseFloat(this.displayValue)
