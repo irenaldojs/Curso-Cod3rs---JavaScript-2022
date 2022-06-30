@@ -1,4 +1,4 @@
-<template>
+<template>    
     <div class="pill">
         <span class="name">{{name}}</span>
         <span class="amount">{{amount}}</span>
@@ -33,9 +33,9 @@ export default {
 .pill .amount{
     margin: 10px;
     padding: 5px;
-    height: 35px;
-    width: 35px;
-    border-radius: 17px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
 
     background-color: white;
     color: crimson;

@@ -6,7 +6,7 @@
       </v-app-bar>
     </div>
     <div>
-      <v-main>
+      <v-main class="main">
         <HomeVue></HomeVue>
       </v-main>
     </div>
@@ -29,5 +29,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.main{
+  margin: 5px;
+}
 </style>
