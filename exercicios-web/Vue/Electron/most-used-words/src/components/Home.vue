@@ -3,12 +3,12 @@
         <v-form>
             <v-file-input
                 label="Selecione as Legendas"
-                prepend-icon="mdi-message-text"               
+                prepend-icon="mdi-message-text"     
+                append-inner-icon="mdi-send"          
                 outlined
                 multiple
                 chips
                 v-model="files"
-                append-inner-icon="mdi-send"
                 @change="processSubtitles"/>
         </v-form>
         <div class="pills">
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { ipcRenderer } from 'electron';
 import PillVue from './Pill.vue'
 
 export default {
@@ -38,6 +39,11 @@ export default {
     methods: {
         processSubtitles(){
             console.log(this.files);
+
+            ipcRenderer.send('blabla', 'ping')
+            ipcRenderer.on('blabla', (event, resp) => {
+                console.log(resp);
+            })
         }
     }
 }
