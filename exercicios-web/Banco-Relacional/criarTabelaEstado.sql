@@ -13,5 +13,5 @@ create table estados(
     populacao DECIMAL(5, 2) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY (nome),
-    UNIQUE KEY (sigla),
+    UNIQUE KEY (sigla)
 );
