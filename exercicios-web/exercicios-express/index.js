@@ -1,7 +1,15 @@
 const express = require('express')
 const app = express()
+const saudacao = require('./saudacaoMid')
 
-app.get('/opa', (req, res) => {
+app.use(saudacao('Guilherme'))
+
+app.use((req, res, next) => {
+    console.log('Antes...');
+    next()
+})
+
+app.get('/opa', (req, res, next) => {
     //res.send(`<h1>Estou Bem!</h1><br><br><h2>Tipo é HTML!</h2>`)
 
     //res.json({
@@ -9,6 +17,8 @@ app.get('/opa', (req, res) => {
     //    price: 1899.00,
     //    discount: 0.12,
     //})
+
+    console.log('Durante...');
 
     res.json({
         data: [
@@ -20,9 +30,14 @@ app.get('/opa', (req, res) => {
         skip: 0,
         limit: 3,
         status: 200,
-        
+
     })
 
+    next()
+})
+
+app.use((req, res) => {
+    console.log('Depois!');
 })
 
 app.listen(3000, () => {
