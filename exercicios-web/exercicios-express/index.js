@@ -3,6 +3,12 @@ const app = express()
 const bodyparser = require('body-parser')
 const saudacao = require('./saudacaoMid')
 
+const usuarioApi = require('./api/usuario')
+require('./api/produto')(app, 'com param')
+
+app.post('/usuario', usuarioApi.salvar)
+app.get('/usuario', usuarioApi.obter)
+
 app.use(bodyparser.text())
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended: true}))
